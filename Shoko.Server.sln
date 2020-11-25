@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1082
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shoko.Server", "Shoko.Server\Shoko.Server.csproj", "{DA8F0783-0F82-4106-9860-6F09BA2EA522}"
 EndProject
@@ -25,9 +25,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shoko.Models", "Shoko.Commo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64D264D0-B20E-4889-B535-EFDC52F921C0}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		dockerentry.sh = dockerentry.sh
 		Dockerfile = Dockerfile
 		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
-		dockerentry.sh = dockerentry.sh
+		Shoko.Suite.Local.snk = Shoko.Suite.Local.snk
+		Shoko.Suite.snk = Shoko.Suite.snk
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shoko.CLI", "Shoko.CLI\Shoko.CLI.csproj", "{3A8E0177-9701-4A59-A6CD-16C6908839EA}"
@@ -35,20 +38,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{00DED27E-E274-4202-9527-4E7D07E384FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{00DED27E-E274-4202-9527-4E7D07E38414}"
-				ProjectSection(SolutionItems) = preProject
-								.github\ISSUE_TEMPLATE.md = .github\ISSUE_TEMPLATE.md
-				EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.github\ISSUE_TEMPLATE.md = .github\ISSUE_TEMPLATE.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{700D0E2E-FF22-4810-8BC5-537207182EDF}"
-ProjectSection(SolutionItems) = preProject
-	.github\workflows\cli.yml = .github\workflows\cli.yml
-	.github\workflows\plugin-nuget.yml = .github\workflows\plugin-nuget.yml
-	.github\workflows\docker-daily.yml = .github\workflows\docker-daily.yml
-	.github\workflows\tray.yml = .github\workflows\tray.yml
-	.github\workflows\cli-framework-dependent.yml = .github\workflows\cli-framework-dependent.yml
-	.github\workflows\tray-framework-dependent.yml = .github\workflows\tray-framework-dependent.yml
-	.github\workflows\UploadArchive.ps1 = .github\workflows\UploadArchive.ps1
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\cli-framework-dependent.yml.off = .github\workflows\cli-framework-dependent.yml.off
+		.github\workflows\cli.yml = .github\workflows\cli.yml
+		.github\workflows\docker-daily.yml.off = .github\workflows\docker-daily.yml.off
+		.github\workflows\plugin-nuget.yml.off = .github\workflows\plugin-nuget.yml.off
+		.github\workflows\tray-framework-dependent.yml.off = .github\workflows\tray-framework-dependent.yml.off
+		.github\workflows\tray.yml.off = .github\workflows\tray.yml.off
+		.github\workflows\UploadArchive.ps1 = .github\workflows\UploadArchive.ps1
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x86", "x86", "{700D0E2E-FF22-4810-8BC5-537207182ECA}"
 	ProjectSection(SolutionItems) = preProject
@@ -93,9 +96,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Custom", "Custom", "{EF5380
 		Dependencies\MediaInfo\Plugin\Custom\zzz_Contrib - Dusil (HTML).csv = Dependencies\MediaInfo\Plugin\Custom\zzz_Contrib - Dusil (HTML).csv
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shoko.TrayService", "Shoko.TrayService\Shoko.TrayService.csproj", "{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shoko.TrayService", "Shoko.TrayService\Shoko.TrayService.csproj", "{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shoko.Plugin.Abstractions", "Shoko.Plugin.Abstractions\Shoko.Plugin.Abstractions.csproj", "{D97A5B87-0109-4018-AF06-65A141A568B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shoko.Plugin.Abstractions", "Shoko.Plugin.Abstractions\Shoko.Plugin.Abstractions.csproj", "{D97A5B87-0109-4018-AF06-65A141A568B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,14 +108,14 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Debug|x64.ActiveCfg = Debug|x64
-		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Debug|x64.Build.0 = Debug|x64
-		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Release|x64.ActiveCfg = Release|x64
-		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Release|x64.Build.0 = Release|x64
 		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Debug|x64.ActiveCfg = Debug|x64
+		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Debug|x64.Build.0 = Debug|x64
 		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Release|x64.ActiveCfg = Release|x64
+		{DA8F0783-0F82-4106-9860-6F09BA2EA522}.Release|x64.Build.0 = Release|x64
 		{29861D1A-968C-49CA-A637-88B391AA5063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29861D1A-968C-49CA-A637-88B391AA5063}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29861D1A-968C-49CA-A637-88B391AA5063}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -161,36 +164,36 @@ Global
 		{D24D15AA-3E71-45A5-B2AF-7490681DEF68}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D24D15AA-3E71-45A5-B2AF-7490681DEF68}.Release|x64.ActiveCfg = Release|Any CPU
 		{D24D15AA-3E71-45A5-B2AF-7490681DEF68}.Release|x64.Build.0 = Release|Any CPU
-		{E0399140-9902-4F38-909D-85E42717EC30}.Debug|x64.ActiveCfg = Debug|x64
-		{E0399140-9902-4F38-909D-85E42717EC30}.Debug|x64.Build.0 = Debug|x64
-		{E0399140-9902-4F38-909D-85E42717EC30}.Release|x64.ActiveCfg = Release|x64
-		{E0399140-9902-4F38-909D-85E42717EC30}.Release|x64.Build.0 = Release|x64
 		{E0399140-9902-4F38-909D-85E42717EC30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E0399140-9902-4F38-909D-85E42717EC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0399140-9902-4F38-909D-85E42717EC30}.Debug|x64.ActiveCfg = Debug|x64
+		{E0399140-9902-4F38-909D-85E42717EC30}.Debug|x64.Build.0 = Debug|x64
 		{E0399140-9902-4F38-909D-85E42717EC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0399140-9902-4F38-909D-85E42717EC30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F73F9DF6-580A-4341-B516-8717626F9D42}.Debug|x64.ActiveCfg = Debug|x64
-		{F73F9DF6-580A-4341-B516-8717626F9D42}.Debug|x64.Build.0 = Debug|x64
-		{F73F9DF6-580A-4341-B516-8717626F9D42}.Release|x64.ActiveCfg = Release|x64
-		{F73F9DF6-580A-4341-B516-8717626F9D42}.Release|x64.Build.0 = Release|x64
+		{E0399140-9902-4F38-909D-85E42717EC30}.Release|x64.ActiveCfg = Release|x64
+		{E0399140-9902-4F38-909D-85E42717EC30}.Release|x64.Build.0 = Release|x64
 		{F73F9DF6-580A-4341-B516-8717626F9D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F73F9DF6-580A-4341-B516-8717626F9D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73F9DF6-580A-4341-B516-8717626F9D42}.Debug|x64.ActiveCfg = Debug|x64
+		{F73F9DF6-580A-4341-B516-8717626F9D42}.Debug|x64.Build.0 = Debug|x64
 		{F73F9DF6-580A-4341-B516-8717626F9D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F73F9DF6-580A-4341-B516-8717626F9D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F73F9DF6-580A-4341-B516-8717626F9D42}.Release|x64.ActiveCfg = Release|x64
+		{F73F9DF6-580A-4341-B516-8717626F9D42}.Release|x64.Build.0 = Release|x64
 		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Debug|x64.ActiveCfg = Debug|x64
 		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Debug|x64.Build.0 = Debug|x64
+		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Release|x64.ActiveCfg = Release|x64
 		{3A8E0177-9701-4A59-A6CD-16C6908839EA}.Release|x64.Build.0 = Release|x64
 		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Debug|x64.ActiveCfg = Debug|x64
 		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Debug|x64.Build.0 = Debug|x64
+		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Release|x64.ActiveCfg = Release|x64
 		{DD1C4411-5E3D-4025-B8A6-3B60B85504D5}.Release|x64.Build.0 = Release|x64
 		{D97A5B87-0109-4018-AF06-65A141A568B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -214,12 +217,12 @@ Global
 		{D24D15AA-3E71-45A5-B2AF-7490681DEF68} = {6568B082-7BB9-4D24-921A-840E8CF1612F}
 		{00DED27E-E274-4202-9527-4E7D07E384FC} = {64D264D0-B20E-4889-B535-EFDC52F921C0}
 		{00DED27E-E274-4202-9527-4E7D07E38414} = {64D264D0-B20E-4889-B535-EFDC52F921C0}
+		{700D0E2E-FF22-4810-8BC5-537207182EDF} = {00DED27E-E274-4202-9527-4E7D07E38414}
+		{700D0E2E-FF22-4810-8BC5-537207182ECA} = {00DED27E-E274-4202-9527-4E7D07E384FC}
 		{99CC23E0-FC68-4531-8C8D-72D38CA98F06} = {00DED27E-E274-4202-9527-4E7D07E384FC}
 		{1148AE1A-8E8D-4CB9-8309-075377B04353} = {00DED27E-E274-4202-9527-4E7D07E384FC}
 		{B64164CA-4140-4985-BD98-A4A8FEB3DC3F} = {1148AE1A-8E8D-4CB9-8309-075377B04353}
 		{EF538055-F3B7-4E6C-8D97-C9C6C19F7AAD} = {B64164CA-4140-4985-BD98-A4A8FEB3DC3F}
-		{700D0E2E-FF22-4810-8BC5-537207182EDF} = {00DED27E-E274-4202-9527-4E7D07E38414}
-		{700D0E2E-FF22-4810-8BC5-537207182ECA} = {00DED27E-E274-4202-9527-4E7D07E384FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1486091B-315E-44FE-8C38-3F9D6E97919B}

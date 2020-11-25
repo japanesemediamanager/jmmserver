@@ -1,3 +1,8 @@
+|CI portable|CI Linux x64|CI Windows x64|CI OSX x64|
+|--|--|--|--|
+|![Shoko.CLI portable](https://github.com/swtrse/ShokoServer/workflows/Shoko.CLI%20portable/badge.svg?branch=net5)|![Shoko.CLI linux](https://github.com/swtrse/ShokoServer/workflows/Shoko.CLI%20linux/badge.svg?branch=net5)|![Shoko.CLI win](https://github.com/swtrse/ShokoServer/workflows/Shoko.CLI%20win/badge.svg?branch=net5)|![Shoko.CLI osx](https://github.com/swtrse/ShokoServer/workflows/Shoko.CLI%20osx/badge.svg?branch=net5)|
+
+
 # Shoko Server
 Shoko server is the core component of the Shoko suite and with it's client-server architecture which allows any program or plugin to access Shoko. You'll have access to your entire collection locally and over the internet with no additional work outside the initial configuration required.
 

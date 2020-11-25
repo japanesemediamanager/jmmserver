@@ -1,58 +1,71 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
-  <PropertyGroup>
-    <TargetFramework>net5</TargetFramework>
-    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
-    <OutputType>exe</OutputType>
-    <Platforms>x64;AnyCPU</Platforms>
-    <Deterministic>false</Deterministic>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <LangVersion>latest</LangVersion>
-    <PublishTrimmed>true</PublishTrimmed>
-    <Configurations>Debug;Release</Configurations>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\Shoko.Server\bin\Debug\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\Shoko.Server\bin\Release\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup>
-    <!-- beauty into sub-directory, default is libs, quote with "" if contains space  -->
-    <BeautyLibsDir>libraries</BeautyLibsDir>
-    <!-- dlls that you don't want to be moved or can not be moved -->
-    <BeautyExcludes>Shoko*;NutzCode*</BeautyExcludes>
-    <!-- set to True if you want to disable -->
-    <DisableBeauty>True</DisableBeauty>
-    <ForceBeauty>False</ForceBeauty>
-    <!-- <BeautyAfterTasks></BeautyAfterTasks> -->
-    <!-- set to True if you want to disable -->
-    <DisablePatch>True</DisablePatch>
-    <!-- valid values: Error|Detail|Info -->
-    <BeautyLogLevel>Info</BeautyLogLevel>
-    <!-- set to a repo mirror if you have troble in connecting github -->
-    <!-- <GitCDN>https://gitee.com/liesauer/HostFXRPatcher</GitCDN> -->
-    <!-- <GitTree>master</GitTree> -->
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="..\SharedAssemblyInfo.cs">
-      <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Shoko.Server\Shoko.Server.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-    <PackageReference Include="NLog" Version="4.7.5" />
-    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.5" />
-    <PackageReference Include="nulastudio.NetCoreBeauty" Version="1.2.9" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="..\Shoko.Server\db.ico">
-      <Link>db.ico</Link>
-    </Resource>
-  </ItemGroup>
+﻿<!--EXTERNAL_PROPERTIES: SHOKO_MAJOR-->
+<!--EXTERNAL_PROPERTIES: SHOKO_MINOR-->
+<!--EXTERNAL_PROPERTIES: SHOKO_PATCH-->
+<!--EXTERNAL_PROPERTIES: SHOKO_BUILD-->
+<!--EXTERNAL_PROPERTIES: GITHUB_SERVER_URL-->
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<OutputType>exe</OutputType>
+		<Nullable>enable</Nullable>
+		<Platforms>AnyCPU</Platforms>
+		<LangVersion>latest</LangVersion>
+		<Configurations>Debug;Release</Configurations>
+		<AssemblyName>Shoko.CLI</AssemblyName>
+		<Authors>Shoko Team</Authors>
+		<Company>Shoko</Company>
+		<Product>Shoko Suite</Product>
+		<Description>The command line interface version of shoko server.</Description>
+		<Copyright>Shoko</Copyright>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<PackageProjectUrl>https://shokoanime.com/</PackageProjectUrl>
+		<RepositoryType>public</RepositoryType>
+		<RepositoryUrl Condition="'$(GITHUB_SERVER_URL)' == ''">https://github.com/swtrse/ShokoServer/tree/net5</RepositoryUrl>
+		<RepositoryUrl Condition="'$(GITHUB_SERVER_URL)' != ''">$(GITHUB_SERVER_URL)</RepositoryUrl>
+		<FileVersion Condition="'$(SHOKO_MAJOR)' == ''">0.0.0.1</FileVersion>
+		<FileVersion Condition="'$(SHOKO_MAJOR)' != ''">$(SHOKO_MAJOR).$(SHOKO_MINOR).$(SHOKO_PATCH).$(SHOKO_BUILD)</FileVersion>
+		<AssemblyVersion Condition="'$(SHOKO_MAJOR)' == ''">0.0.0.1</AssemblyVersion>
+		<AssemblyVersion Condition="'$(SHOKO_MAJOR)' != ''">$(SHOKO_MAJOR).$(SHOKO_MINOR).0.0</AssemblyVersion>
+		<Version Condition="'$(SHOKO_MAJOR)' == ''">0.0.0.1-local</Version>
+		<Version Condition="'$(SHOKO_MAJOR)' != ''">$(SHOKO_MAJOR).$(SHOKO_MINOR).$(SHOKO_PATCH).$(SHOKO_BUILD)</Version>
+		<ApplicationIcon>..\Shoko.Server\db.ico</ApplicationIcon>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile Condition="'$(GITHUB_SERVER_URL)' == ''">..\Shoko.Suite.Local.snk</AssemblyOriginatorKeyFile>
+		<AssemblyOriginatorKeyFile Condition="'$(GITHUB_SERVER_URL)' != ''">..\Shoko.Suite.snk</AssemblyOriginatorKeyFile>
+		<AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<OutputPath>..\Shoko.Server\bin\Debug\</OutputPath>
+		<DocumentationFile>..\Shoko.Server\bin\Debug\Shoko.CLI.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<OutputPath>..\Shoko.Server\bin\Release\</OutputPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Shoko.Server\Shoko.Server.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<WCFMetadata Include="Connected Services\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="JetBrains.Annotations" Version="2020.1.0">
+			<PrivateAssets>All</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+		<PackageReference Include="NLog" Version="4.7.5" />
+		<PackageReference Include="NLog.Extensions.Logging" Version="1.6.5" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 </Project>

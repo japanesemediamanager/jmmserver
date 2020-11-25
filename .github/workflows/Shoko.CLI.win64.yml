@@ -1,0 +1,41 @@
+name: Shoko.CLI win
+
+on:
+  push:
+    paths-ignore: 
+      - ".github/**"
+      - "README.md"
+    branches:
+        - net5
+
+env:
+  SHOKO_BUILD: ${{ github.run_number }}
+
+jobs:
+  build_shoko_cli:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet: ['5.0']
+    name: Shoko.CLI build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: ".github/workflows/variables.env"
+      - run: echo Build Shoko.CLI v$SHOKO_MAJOR.$SHOKO_MINOR.$SHOKO_PATCH.$SHOKO_BUILD
+      - name: Unlock secrets
+        uses: sliteteam/github-action-git-crypt-unlock@1.1.0
+        env:
+          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - run: dotnet publish Shoko.CLI -c Release -r win-x64 -p:PublishTrimmed=true -p:TrimMode=Link --self-contained true
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Shoko.CLI win
+          path: Shoko.Server/bin/Release/net${{matrix.dotnet}}/win-x64/publish/

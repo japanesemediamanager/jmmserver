@@ -1,0 +1,2 @@
+.gitattributes !filter !diff
+Shoko.Suite.snk filter=git-crypt diff=git-crypt
